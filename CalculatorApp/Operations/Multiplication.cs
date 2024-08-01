@@ -1,7 +1,7 @@
 namespace CalculatorApp.Operations;
 
-public class Subtraction : IOperation
+public class Multiplication : IOperation
 {
     public double Execute(double number1, double number2)
-        => number1 - number2;
+        => number1 * number2;
 }

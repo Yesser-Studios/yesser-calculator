@@ -1,4 +1,4 @@
-namespace CalculatorApp;
+namespace CalculatorApp.Operations;
 
 public interface IOperation
 {
