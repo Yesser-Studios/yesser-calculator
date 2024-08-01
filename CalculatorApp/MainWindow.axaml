@@ -47,7 +47,7 @@
         <Grid HorizontalAlignment="Center"
               VerticalAlignment="Center"
               ColumnDefinitions="100,100,100,100"
-              RowDefinitions="100,100,100,100">
+              RowDefinitions="100,100,100,100,100">
             <Button Grid.Row="2" Grid.Column="0" Click="NumberButton_OnClick" Tag="1">1</Button>
             <Button Grid.Row="2" Grid.Column="1" Click="NumberButton_OnClick" Tag="2">2</Button>
             <Button Grid.Row="2" Grid.Column="2" Click="NumberButton_OnClick" Tag="3">3</Button>
@@ -65,6 +65,9 @@
             <Button Grid.Row="2" Grid.Column="3" Click="OperationButton_OnClick" Tag="*">*</Button>
             <Button Grid.Row="3" Grid.Column="3" Click="OperationButton_OnClick" Tag="/">/</Button>
             <Button Grid.Row="3" Grid.Column="2" Click="EqualsButton_OnClick">=</Button>
+            
+            <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Width="194" Click="ClearButton_OnClick">CE</Button>
+            <Button Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Width="194" Click="BackspaceButton_OnClick">BACK</Button>
         </Grid>
     </StackPanel>
 </Window>
