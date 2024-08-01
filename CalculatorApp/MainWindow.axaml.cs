@@ -83,6 +83,7 @@ public partial class MainWindow : Window
         {
             toAppend = "." + toAppend;
             _decimalSeparatorInside = true;
+            _appendDecimalSeparator = false;
         }
         
         var result = GetCurrentNumberRef().ToString(CultureInfo.InvariantCulture) + toAppend;
@@ -127,6 +128,8 @@ public partial class MainWindow : Window
         if (_decimalSeparatorInside) return;
         
         _appendDecimalSeparator = true;
+        
+        UpdateNumberBox();
     }
 
     private void EqualsButton_OnClick(object? sender, RoutedEventArgs e)
