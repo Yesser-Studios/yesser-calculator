@@ -154,4 +154,23 @@ public partial class MainWindow : Window
         UpdateNumberBox();
         UpdateOperationBox();
     }
+
+    private void ClearButton_OnClick(object? sender, RoutedEventArgs e)
+    {
+        _number1 = 0;
+        _number2 = 0;
+        _result = 0;
+        _currentNumber = CurrentNumber.Number1;
+        _currentOperation = null;
+        _appendDecimalSeparator = false;
+        _decimalSeparatorInside = false;
+        
+        UpdateNumberBox();
+        UpdateOperationBox();
+    }
+
+    private void BackspaceButton_OnClick(object? sender, RoutedEventArgs e)
+    {
+        throw new NotImplementedException();
+    }
 }
