@@ -5,5 +5,48 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="CalculatorApp.MainWindow"
         Title="CalculatorApp">
-    Welcome to Avalonia!
+    <Window.Styles>
+        <Style Selector="Button">
+            <Setter Property="Width" Value="92" />
+            <Setter Property="Height" Value="92" />
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="32" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+        <Style Selector="TextBox">
+            <Setter Property="Width" Value="392" />
+            <Setter Property="Height" Value="92" />
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="32" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+    </Window.Styles>
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBox x:Name="NumberBox" ></TextBox>
+        <Grid HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              ColumnDefinitions="100,100,100,100"
+              RowDefinitions="100,100,100,100">
+            <Button Grid.Row="2" Grid.Column="0" Click="NumberButton_OnClick" Tag="1">1</Button>
+            <Button Grid.Row="2" Grid.Column="1" Click="NumberButton_OnClick" Tag="2">2</Button>
+            <Button Grid.Row="2" Grid.Column="2" Click="NumberButton_OnClick" Tag="3">3</Button>
+            <Button Grid.Row="1" Grid.Column="0" Click="NumberButton_OnClick" Tag="4">4</Button>
+            <Button Grid.Row="1" Grid.Column="1" Click="NumberButton_OnClick" Tag="5">5</Button>
+            <Button Grid.Row="1" Grid.Column="2" Click="NumberButton_OnClick" Tag="6">6</Button>
+            <Button Grid.Row="0" Grid.Column="0" Click="NumberButton_OnClick" Tag="7">7</Button>
+            <Button Grid.Row="0" Grid.Column="1" Click="NumberButton_OnClick" Tag="8">8</Button>
+            <Button Grid.Row="0" Grid.Column="2" Click="NumberButton_OnClick" Tag="9">9</Button>
+            <Button Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Width="192" Click="NumberButton_OnClick" Tag="0">0</Button>
+            
+            <Button  Grid.Row="0" Grid.Column="3" Click="OperationButton_OnClick">+</Button>
+            <Button  Grid.Row="1" Grid.Column="3" Click="OperationButton_OnClick">-</Button>
+            <Button  Grid.Row="2" Grid.Column="3" Click="OperationButton_OnClick">*</Button>
+            <Button  Grid.Row="3" Grid.Column="3" Click="OperationButton_OnClick">/</Button>
+            <Button  Grid.Row="3" Grid.Column="2" Click="OperationButton_OnClick">=</Button>
+        </Grid>
+    </StackPanel>
 </Window>
