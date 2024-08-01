@@ -114,7 +114,7 @@ public partial class MainWindow : Window
         UpdateOperationBox();
     }
 
-    private void Comma_OnClick(object? sender, RoutedEventArgs e)
+    private void DecimalSeparator_OnClick(object? sender, RoutedEventArgs e)
     {
         if (_decimalSeparatorInside) return;
         
