@@ -8,11 +8,11 @@ namespace CalculatorApp;
 
 public partial class MainWindow : Window
 {
-    private double _number1 = 0;
-    private double _number2 = 0;
-    private double _result = 0;
+    private double _number1;
+    private double _number2;
+    private double _result;
     private CurrentNumber _currentNumber = CurrentNumber.Number1;
-    private IOperation? _currentOperation = null;
+    private IOperation? _currentOperation;
     
     public MainWindow()
     {
