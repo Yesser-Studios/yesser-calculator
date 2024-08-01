@@ -13,6 +13,8 @@ public partial class MainWindow : Window
     private double _result;
     private CurrentNumber _currentNumber = CurrentNumber.Number1;
     private IOperation? _currentOperation;
+    private bool _appendDecimalSeparator;
+    private bool _decimalSeparatorInside;
     
     public MainWindow()
     {
@@ -68,6 +70,13 @@ public partial class MainWindow : Window
         }
 
         var toAppend = number.ToString();
+
+        if (_appendDecimalSeparator && !_decimalSeparatorInside)
+        {
+            toAppend = "." + toAppend;
+            _decimalSeparatorInside = true;
+        }
+        
         var result = GetCurrentNumberRef().ToString(CultureInfo.InvariantCulture) + toAppend;
         GetCurrentNumberRef() = double.Parse(result);
 
@@ -107,7 +116,9 @@ public partial class MainWindow : Window
 
     private void Comma_OnClick(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        if (_decimalSeparatorInside) return;
+        
+        _appendDecimalSeparator = true;
     }
 
     private void EqualsButton_OnClick(object? sender, RoutedEventArgs e)
