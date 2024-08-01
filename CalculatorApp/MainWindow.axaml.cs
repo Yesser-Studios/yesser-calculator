@@ -7,6 +7,8 @@ using CalculatorApp.Operations;
 
 namespace CalculatorApp;
 
+// ReSharper disable file UnusedParameter.Local
+
 public partial class MainWindow : Window
 {
     private double _number1;
@@ -21,7 +23,7 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
     }
-
+    
     private void Window_OnLoaded(object? sender, RoutedEventArgs e)
     {
         SeparatorButton.Content = LocalizationHelper.DecimalSeparator;
@@ -61,7 +63,7 @@ public partial class MainWindow : Window
                 return ref _number1;
         }
     }
-
+    
     private void NumberButton_OnClick(object? sender, RoutedEventArgs e)
     {
         if (_currentNumber is CurrentNumber.Result)
@@ -87,16 +89,35 @@ public partial class MainWindow : Window
             _appendDecimalSeparator = false;
         }
         
-        var result = GetCurrentNumberRef().ToString(CultureInfo.InvariantCulture) + toAppend;
-        GetCurrentNumberRef() = double.Parse(result);
+        AppendToCurrentNumber(toAppend);
 
         UpdateNumberBox();
     }
 
+    private void AppendToCurrentNumber(string toAppend)
+    {
+        var result = GetCurrentNumberRef().ToString(CultureInfo.InvariantCulture) + toAppend;
+        GetCurrentNumberRef() = double.Parse(result);
+    }
+
     private void OperationButton_OnClick(object? sender, RoutedEventArgs e)
     {
+        PreprocessNumber();
+
+        _currentNumber = CurrentNumber.Number2;
+
+        var tag = (sender as Button)?.Tag?.ToString();
+        var factory = new OperationFactory();
+        _currentOperation = factory.GetOperationFromString(tag);
+        _appendDecimalSeparator = false;
+        _decimalSeparatorInside = false;
         
-        
+        UpdateNumberBox();
+        UpdateOperationBox();
+    }
+
+    private void PreprocessNumber()
+    {
         // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
         switch (_currentNumber)
         {
@@ -116,17 +137,6 @@ public partial class MainWindow : Window
             case CurrentNumber.Number1:
                 break;
         }
-
-        _currentNumber = CurrentNumber.Number2;
-
-        var tag = (sender as Button)?.Tag?.ToString();
-        var factory = new OperationFactory();
-        _currentOperation = factory.GetOperationFromString(tag);
-        _appendDecimalSeparator = false;
-        _decimalSeparatorInside = false;
-        
-        UpdateNumberBox();
-        UpdateOperationBox();
     }
 
     private void DecimalSeparator_OnClick(object? sender, RoutedEventArgs e)
