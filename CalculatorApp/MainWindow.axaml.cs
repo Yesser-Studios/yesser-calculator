@@ -22,8 +22,11 @@ public partial class MainWindow : Window
     private void UpdateOperationBox()
     {
         if (_currentOperation is null)
+        {
+            OperationBox.Text = "";
             return;
-        
+        }
+
         OperationBox.Text = _currentOperation.Symbol;
     }
     
