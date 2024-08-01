@@ -95,10 +95,7 @@ public partial class MainWindow : Window
 
     private void OperationButton_OnClick(object? sender, RoutedEventArgs e)
     {
-        // Hide trailing decimal separator
-        _appendDecimalSeparator = false;
-        _decimalSeparatorInside = false;
-        UpdateNumberBox();
+        
         
         // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
         switch (_currentNumber)
@@ -125,7 +122,10 @@ public partial class MainWindow : Window
         var tag = (sender as Button)?.Tag?.ToString();
         var factory = new OperationFactory();
         _currentOperation = factory.GetOperationFromString(tag);
+        _appendDecimalSeparator = false;
+        _decimalSeparatorInside = false;
         
+        UpdateNumberBox();
         UpdateOperationBox();
     }
 
