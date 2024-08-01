@@ -1,5 +1,6 @@
 using System;
 using System.Globalization;
+using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using CalculatorApp.Operations;
@@ -171,6 +172,26 @@ public partial class MainWindow : Window
 
     private void BackspaceButton_OnClick(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        if (_appendDecimalSeparator)
+            _appendDecimalSeparator = false;
+        else
+        {
+            var number = GetCurrentNumberRef().ToString(CultureInfo.InvariantCulture);
+            number = number[..^1]; // Remove last character
+            
+            if (number.Last() == '.')
+            {
+                number = number[..^1];
+                _appendDecimalSeparator = true;
+                _decimalSeparatorInside = false;
+            }
+
+            var didParse = double.TryParse(number, out var parsed);
+            if (!didParse) parsed = 0.0;
+
+            GetCurrentNumberRef() = parsed;
+        }
+        
+        UpdateNumberBox();
     }
 }
