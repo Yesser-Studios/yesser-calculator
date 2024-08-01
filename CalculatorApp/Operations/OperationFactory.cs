@@ -2,8 +2,11 @@ namespace CalculatorApp.Operations;
 
 public class OperationFactory
 {
-    public IOperation? GetOperationFromString(string type)
+    public IOperation? GetOperationFromString(string? type)
     {
+        if (type is null)
+            return null;
+        
         return type switch
         {
             "+" => new Addition(),
