@@ -187,7 +187,7 @@ public partial class MainWindow : Window
             }
 
             var didParse = double.TryParse(number, out var parsed);
-            if (!didParse) parsed = 0.0;
+            if (!didParse) parsed = 0;
 
             GetCurrentNumberRef() = parsed;
         }
