@@ -21,6 +21,11 @@ public partial class MainWindow : Window
         InitializeComponent();
     }
 
+    private void Window_OnLoaded(object? sender, RoutedEventArgs e)
+    {
+        SeparatorButton.Content = LocalizationHelper.DecimalSeparator;
+    }
+
     private void UpdateOperationBox()
     {
         if (_currentOperation is null)
@@ -31,12 +36,15 @@ public partial class MainWindow : Window
 
         OperationBox.Text = _currentOperation.Symbol;
     }
-    
+
     private void UpdateNumberBox()
     {
         NumberBox.Text = GetCurrentNumberRef().ToString(CultureInfo.InvariantCulture);
+
+        if (_appendDecimalSeparator)
+            NumberBox.Text += LocalizationHelper.DecimalSeparator;
     }
-    
+
     private ref double GetCurrentNumberRef()
     {
         // ReSharper disable once ConvertSwitchStatementToSwitchExpression
@@ -52,7 +60,7 @@ public partial class MainWindow : Window
                 return ref _number1;
         }
     }
-    
+
     private void NumberButton_OnClick(object? sender, RoutedEventArgs e)
     {
         if (_currentNumber is CurrentNumber.Result)

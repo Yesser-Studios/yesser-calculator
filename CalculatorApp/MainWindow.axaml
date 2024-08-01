@@ -4,7 +4,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="CalculatorApp.MainWindow"
-        Title="CalculatorApp">
+        Title="CalculatorApp"
+        Loaded="Window_OnLoaded">
     <Window.Styles>
         <Style Selector="Button">
             <Setter Property="Width" Value="92" />
@@ -57,7 +58,7 @@
             <Button Grid.Row="0" Grid.Column="1" Click="NumberButton_OnClick" Tag="8">8</Button>
             <Button Grid.Row="0" Grid.Column="2" Click="NumberButton_OnClick" Tag="9">9</Button>
             <Button Grid.Row="3" Grid.Column="0" Click="NumberButton_OnClick" Tag="0">0</Button>
-            <Button Grid.Row="3" Grid.Column="1" Click="DecimalSeparator_OnClick">.</Button>
+            <Button Grid.Row="3" Grid.Column="1" Click="DecimalSeparator_OnClick" x:Name="SeparatorButton">.</Button>
             
             <Button Grid.Row="0" Grid.Column="3" Click="OperationButton_OnClick" Tag="+">+</Button>
             <Button Grid.Row="1" Grid.Column="3" Click="OperationButton_OnClick" Tag="-">-</Button>
