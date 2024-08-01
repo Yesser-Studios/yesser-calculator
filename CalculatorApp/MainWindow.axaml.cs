@@ -143,6 +143,8 @@ public partial class MainWindow : Window
         _number1 = 0;
         _number2 = 0;
         _currentOperation = null;
+        _decimalSeparatorInside = false;
+        _appendDecimalSeparator = false;
         
         UpdateNumberBox();
         UpdateOperationBox();
