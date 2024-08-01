@@ -119,6 +119,9 @@ public partial class MainWindow : Window
         var tag = (sender as Button)?.Tag?.ToString();
         var factory = new OperationFactory();
         _currentOperation = factory.GetOperationFromString(tag);
+
+        _appendDecimalSeparator = false;
+        _decimalSeparatorInside = false;
         
         UpdateOperationBox();
     }
