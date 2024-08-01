@@ -21,7 +21,10 @@ public partial class MainWindow : Window
 
     private void UpdateOperationBox()
     {
+        if (_currentOperation is null)
+            return;
         
+        OperationBox.Text = _currentOperation.Symbol;
     }
     
     private void UpdateNumberBox()
@@ -94,6 +97,8 @@ public partial class MainWindow : Window
         var tag = (sender as Button)?.Tag?.ToString();
         var factory = new OperationFactory();
         _currentOperation = factory.GetOperationFromString(tag);
+        
+        UpdateOperationBox();
     }
 
     private void Comma_OnClick(object? sender, RoutedEventArgs e)
@@ -111,8 +116,9 @@ public partial class MainWindow : Window
 
         _number1 = 0;
         _number2 = 0;
+        _currentOperation = null;
         
         UpdateNumberBox();
-        _currentOperation = null;
+        UpdateOperationBox();
     }
 }
