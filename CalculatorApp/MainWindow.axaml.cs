@@ -67,9 +67,10 @@ public partial class MainWindow : Window
             return;
         }
 
-        GetCurrentNumberRef() *= 10;
-        GetCurrentNumberRef() += number;
-        
+        var toAppend = number.ToString();
+        var result = GetCurrentNumberRef().ToString(CultureInfo.InvariantCulture) + toAppend;
+        GetCurrentNumberRef() = double.Parse(result);
+
         UpdateNumberBox();
     }
 
