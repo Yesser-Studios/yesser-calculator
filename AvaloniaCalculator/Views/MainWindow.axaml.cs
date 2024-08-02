@@ -20,7 +20,7 @@ public partial class MainWindow : Window
 
         int row = 0;
         int column = MainGrid.ColumnDefinitions.Count - columnCount;
-        foreach (var (symbol, operation) in operationFactory.OperationMap)
+        foreach (var (symbol, _) in operationFactory.OperationMap)
         {
             var button = new Button
             {
