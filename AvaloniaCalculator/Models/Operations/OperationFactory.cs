@@ -5,11 +5,11 @@ namespace AvaloniaCalculator.Models.Operations;
 
 public class OperationFactory
 {
-    private readonly Dictionary<string, IOperation> _operationMap = [];
+    public readonly Dictionary<string, IOperation> OperationMap = [];
 
     public void RegisterOperation(IOperation operation)
     {
-        _operationMap.Add(operation.Symbol, operation);
+        OperationMap.Add(operation.Symbol, operation);
     }
 
     public bool TryRegisterOperation(IOperation operation, out Exception? exception)
@@ -32,7 +32,7 @@ public class OperationFactory
         if (symbol is null)
             return null;
 
-        var exists = _operationMap.TryGetValue(symbol, out var operation);
+        var exists = OperationMap.TryGetValue(symbol, out var operation);
         return exists ? operation : null;
     }
 }
