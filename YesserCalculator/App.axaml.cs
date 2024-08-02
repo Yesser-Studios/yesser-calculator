@@ -14,6 +14,18 @@ namespace YesserCalculator;
 
 public partial class App : Application
 {
+    private static string BaseAppDataPath
+        => Environment.GetFolderPath(
+            Environment.SpecialFolder.LocalApplicationData,
+            Environment.SpecialFolderOption.Create);
+
+    public static string AppDataPath =>
+        Path.Join(BaseAppDataPath, "YesserCalculator");
+
+    public static string ExtensionDirectoryPath =>
+        Path.Join(AppDataPath, "Extensions");
+    
+    
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
@@ -21,10 +33,6 @@ public partial class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
-        string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData,
-            Environment.SpecialFolderOption.Create);
-        string pluginDirectoryPath = Path.Join(appDataPath, "YesserCalculator", "Plugins");
-        
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             var factory = new OperationFactory();
