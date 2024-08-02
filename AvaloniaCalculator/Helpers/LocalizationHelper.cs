@@ -1,6 +1,6 @@
 using System.Threading;
 
-namespace AvaloniaCalculator.Models;
+namespace AvaloniaCalculator.Helpers;
 
 public static class LocalizationHelper
 {

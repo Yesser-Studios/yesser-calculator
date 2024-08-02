@@ -1,9 +1,9 @@
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace AvaloniaCalculator.Models;
+namespace AvaloniaCalculator.Utilities;
 
-public static class UrlHelper
+public static class UrlOpener
 {
     public static void OpenUrl(string url)
     {

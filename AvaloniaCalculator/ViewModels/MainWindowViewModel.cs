@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
+using AvaloniaCalculator.Helpers;
 using AvaloniaCalculator.Models;
 using AvaloniaCalculator.Models.Operations;
 
@@ -174,7 +175,7 @@ public partial class MainWindowViewModel : ViewModelBase
 
     public void ViewSourceCode_OnClick()
     {
-        UrlHelper.OpenUrl("https://github.com/yesseruser/avalonia-calculator");
+        UrlOpener.OpenUrl("https://github.com/yesseruser/avalonia-calculator");
     }
 #pragma warning restore CA1822 // Mark members as static
 }
