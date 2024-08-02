@@ -21,10 +21,10 @@ public partial class App : Application
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             var factory = new OperationFactory();
-            factory.RegisterOperation(new Addition());
-            factory.RegisterOperation(new Subtraction());
-            factory.RegisterOperation(new Multiplication());
-            factory.RegisterOperation(new Division());
+            factory.TryRegisterOperation(new Addition(), out _);
+            factory.TryRegisterOperation(new Subtraction(), out _);
+            factory.TryRegisterOperation(new Multiplication(), out _);
+            factory.TryRegisterOperation(new Division(), out _);
             
             // Line below is needed to remove Avalonia data validation.
             // Without this line you will get duplicate validations from both Avalonia and CT

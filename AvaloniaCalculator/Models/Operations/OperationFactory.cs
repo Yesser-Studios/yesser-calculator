@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace AvaloniaCalculator.Models.Operations;
@@ -9,6 +10,21 @@ public class OperationFactory
     public void RegisterOperation(IOperation operation)
     {
         _operationMap.Add(operation.Symbol, operation);
+    }
+
+    public bool TryRegisterOperation(IOperation operation, out Exception? exception)
+    {
+        try
+        {
+            RegisterOperation(operation);
+            exception = null;
+            return true;
+        }
+        catch (Exception e)
+        {
+            exception = e;
+            return false;
+        }
     }
     
     public IOperation? GetOperationFromString(string? symbol)
