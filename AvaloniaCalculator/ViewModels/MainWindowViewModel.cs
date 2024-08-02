@@ -174,7 +174,7 @@ public partial class MainWindowViewModel : ViewModelBase
 
     public void ViewSourceCode_OnClick()
     {
-        Console.WriteLine("Viewing source");
+        UrlHelper.OpenUrl("https://github.com/yesseruser/avalonia-calculator");
     }
 #pragma warning restore CA1822 // Mark members as static
 }
