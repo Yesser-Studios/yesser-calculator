@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using YesserCalculatorExtension;
 
@@ -13,13 +14,10 @@ public static class ExtensionHelper
         try
         {
             var assembly = Assembly.LoadFile(path);
-            var extensionType = assembly.GetType("Extension");
-            if (extensionType == null)
-                return false;
-            
-            IExtension? instanceOfExtensionType = Activator.CreateInstance(extensionType) as IExtension;
+            var extensionTypes = assembly.GetTypes();
+            var extensionType = extensionTypes.First(x => x.Name == "Extension");
 
-            if (instanceOfExtensionType == null)
+            if (Activator.CreateInstance(extensionType) is not IExtension instanceOfExtensionType)
                 return false;
 
             result = instanceOfExtensionType.GetOperationList();
