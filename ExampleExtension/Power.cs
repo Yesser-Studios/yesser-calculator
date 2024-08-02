@@ -8,4 +8,5 @@ public class Power : IOperation
         => Math.Pow(number1, number2);
 
     public string Symbol => "^";
+    public string DisplaySymbol => Symbol;
 }

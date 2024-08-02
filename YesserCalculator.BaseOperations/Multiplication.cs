@@ -8,4 +8,5 @@ public class Multiplication : IOperation
         => number1 * number2;
     
     public string Symbol => "*";
+    public string DisplaySymbol => "×";
 }

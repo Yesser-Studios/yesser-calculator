@@ -20,12 +20,12 @@ public partial class MainWindow : Window
 
         int row = 0;
         int column = MainGrid.ColumnDefinitions.Count - columnCount;
-        foreach (var (symbol, _) in operationFactory.OperationMap)
+        foreach (var (symbol, operation) in operationFactory.OperationMap)
         {
             var button = new Button
             {
                 CommandParameter = symbol,
-                Content = symbol
+                Content = operation.DisplaySymbol
             };
 
             button.Click += OperationButton_Click;
