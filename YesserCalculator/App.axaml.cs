@@ -5,6 +5,7 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
+using YesserCalculator.Helpers;
 using YesserCalculator.Models.Operations;
 using YesserCalculator.ViewModels;
 using YesserCalculator.Views;
@@ -40,6 +41,19 @@ public partial class App : Application
             
             var baseExtension = new BaseOperations.Extension();
             operations.AddRange(baseExtension.GetOperationList());
+
+            if (!Directory.Exists(ExtensionDirectoryPath))
+                Directory.CreateDirectory(ExtensionDirectoryPath);
+            
+            var extensionPaths = Directory.GetFiles(ExtensionDirectoryPath);
+            foreach (var path in extensionPaths)
+            {
+                var loaded = ExtensionHelper.TryLoadPlugin(path, out var newOperations);
+                if (!loaded)
+                    continue;
+                
+                operations.AddRange(newOperations);
+            }
             
             // Add extension loading
             
