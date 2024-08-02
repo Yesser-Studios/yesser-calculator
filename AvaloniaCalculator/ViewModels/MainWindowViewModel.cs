@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
+using System.Reactive;
 using AvaloniaCalculator.Helpers;
 using AvaloniaCalculator.Models;
 using AvaloniaCalculator.Models.Operations;
 using AvaloniaCalculator.Utilities;
+using ReactiveUI;
 
 namespace AvaloniaCalculator.ViewModels;
 
-public partial class MainWindowViewModel(OperationFactory operationFactory) : ViewModelBase
+public partial class MainWindowViewModel : ViewModelBase
 {
 #pragma warning disable CA1822 // Mark members as static
     private double _number1;
@@ -18,7 +20,12 @@ public partial class MainWindowViewModel(OperationFactory operationFactory) : Vi
     private IOperation? _currentOperation;
     private bool _appendDecimalSeparator;
     private bool _decimalSeparatorInside;
-    private OperationFactory _operationFactory = operationFactory;
+    private readonly OperationFactory _operationFactory;
+
+    public MainWindowViewModel(OperationFactory operationFactory)
+    {
+        _operationFactory = operationFactory;
+    }
 
     public string DecimalSeparator
         => LocalizationHelper.DecimalSeparator;
@@ -93,12 +100,13 @@ public partial class MainWindowViewModel(OperationFactory operationFactory) : Vi
     
     public void OperationButton_OnClick(string symbol)
     {
+        Console.WriteLine($"Processing operation: {symbol}");
+        
         PreprocessNumber();
 
         _currentNumber = CurrentNumber.Number2;
         
-        var factory = new OperationFactory();
-        _currentOperation = factory.GetOperationFromString(symbol);
+        _currentOperation = _operationFactory.GetOperationFromString(symbol);
         _appendDecimalSeparator = false;
         _decimalSeparatorInside = false;
     }

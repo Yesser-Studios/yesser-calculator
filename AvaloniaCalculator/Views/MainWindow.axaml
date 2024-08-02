@@ -64,7 +64,8 @@
             <Grid HorizontalAlignment="Center"
                   VerticalAlignment="Center"
                   ColumnDefinitions="100,100,100,100"
-                  RowDefinitions="100,100,100,100,100">
+                  RowDefinitions="100,100,100,100,100"
+                  x:Name="MainGrid">
                 <Button Grid.Row="2" Grid.Column="0" Command="{Binding NumberButton_OnClick}" CommandParameter="1">1</Button>
                 <Button Grid.Row="2" Grid.Column="1" Command="{Binding NumberButton_OnClick}" CommandParameter="2" Tag="2">2</Button>
                 <Button Grid.Row="2" Grid.Column="2" Command="{Binding NumberButton_OnClick}" CommandParameter="3" Tag="3">3</Button>
@@ -77,10 +78,6 @@
                 <Button Grid.Row="3" Grid.Column="0" Command="{Binding NumberButton_OnClick}" CommandParameter="0" Tag="0">0</Button>
                 <Button Grid.Row="3" Grid.Column="1" Command="{Binding DecimalSeparator_OnClick}" Content="{Binding DecimalSeparator}"></Button>
                 
-                <Button Grid.Row="1" Grid.Column="3" Command="{Binding OperationButton_OnClick}" CommandParameter="+">+</Button>
-                <Button Grid.Row="2" Grid.Column="3" Command="{Binding OperationButton_OnClick}" CommandParameter="-">-</Button>
-                <Button Grid.Row="3" Grid.Column="3" Command="{Binding OperationButton_OnClick}" CommandParameter="*">*</Button>
-                <Button Grid.Row="3" Grid.Column="2" Command="{Binding OperationButton_OnClick}" CommandParameter="/">/</Button>
                 <Button Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Width="194" Command="{Binding EqualsButton_OnClick}">=</Button>
                 
                 <Button Grid.Row="0" Grid.Column="3" Command="{Binding ClearButton_OnClick}">CE</Button>
