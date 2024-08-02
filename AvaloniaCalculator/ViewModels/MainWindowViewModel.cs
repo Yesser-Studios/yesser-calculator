@@ -1,12 +1,12 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
-using System.Reactive;
+using System.Runtime.CompilerServices;
 using AvaloniaCalculator.Helpers;
 using AvaloniaCalculator.Models;
 using AvaloniaCalculator.Models.Operations;
 using AvaloniaCalculator.Utilities;
-using ReactiveUI;
 
 namespace AvaloniaCalculator.ViewModels;
 
@@ -89,6 +89,8 @@ public partial class MainWindowViewModel : ViewModelBase
     {
         var result = GetCurrentNumberRef().ToString(CultureInfo.InvariantCulture) + toAppend;
         GetCurrentNumberRef() = double.Parse(result);
+        
+        OnPropertyChanged(nameof(NumberBoxContent));
     }
     
     public void DecimalSeparator_OnClick()
@@ -96,6 +98,7 @@ public partial class MainWindowViewModel : ViewModelBase
         if (_decimalSeparatorInside) return;
         
         _appendDecimalSeparator = true;
+        OnPropertyChanged(nameof(NumberBoxContent));
     }
     
     public void OperationButton_OnClick(string symbol)
@@ -109,6 +112,8 @@ public partial class MainWindowViewModel : ViewModelBase
         _currentOperation = _operationFactory.GetOperationFromString(symbol);
         _appendDecimalSeparator = false;
         _decimalSeparatorInside = false;
+        OnPropertyChanged(nameof(NumberBoxContent));
+        OnPropertyChanged(nameof(OperationBoxContent));
     }
 
     private void PreprocessNumber()
@@ -147,6 +152,8 @@ public partial class MainWindowViewModel : ViewModelBase
         _currentOperation = null;
         _decimalSeparatorInside = false;
         _appendDecimalSeparator = false;
+        OnPropertyChanged(nameof(NumberBoxContent));
+        OnPropertyChanged(nameof(OperationBoxContent));
     }
     
     public void ClearButton_OnClick()
@@ -158,6 +165,8 @@ public partial class MainWindowViewModel : ViewModelBase
         _currentOperation = null;
         _appendDecimalSeparator = false;
         _decimalSeparatorInside = false;
+        OnPropertyChanged(nameof(NumberBoxContent));
+        OnPropertyChanged(nameof(OperationBoxContent));
     }
     
     public void BackspaceButton_OnClick()
@@ -181,6 +190,8 @@ public partial class MainWindowViewModel : ViewModelBase
 
             GetCurrentNumberRef() = parsed;
         }
+        
+        OnPropertyChanged(nameof(NumberBoxContent));
     }
 
     public void ViewSourceCode_OnClick()
