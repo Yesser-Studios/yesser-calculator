@@ -38,7 +38,7 @@
     
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="Source">
+            <MenuItem Header="_Source">
                 <MenuItem Header="View source code on GitHub"></MenuItem>
             </MenuItem>
         </Menu>

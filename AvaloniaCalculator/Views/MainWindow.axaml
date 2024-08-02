@@ -1,0 +1,92 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AvaloniaCalculator.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaCalculator.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="AvaloniaCalculator">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+    
+    <Window.Styles>
+        <Style Selector="Button">
+            <Setter Property="Width" Value="92" />
+            <Setter Property="Height" Value="92" />
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="32" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+        <Style Selector="TextBox#NumberBox">
+            <Setter Property="Width" Value="292" />
+            <Setter Property="Height" Value="92" />
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="HorizontalContentAlignment" Value="Right" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="32" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+        <Style Selector="TextBox#OperationBox">
+            <Setter Property="Width" Value="92" />
+            <Setter Property="Height" Value="92" />
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="32" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+    </Window.Styles>
+    
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Source">
+                <MenuItem Header="View source code on GitHub"></MenuItem>
+            </MenuItem>
+        </Menu>
+        
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  ColumnDefinitions="300,100"
+                  RowDefinitions="100">
+                <TextBox Grid.Column="0" IsReadOnly="True" Text="{Binding NumberBoxContent}" x:Name="NumberBox" />
+                <TextBox Grid.Column="1" IsReadOnly="True" Text="{Binding OperationBoxContent}" x:Name="OperationBox" />
+            </Grid>
+            
+            <Grid HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  ColumnDefinitions="100,100,100,100"
+                  RowDefinitions="100,100,100,100,100">
+                <Button Grid.Row="2" Grid.Column="0" Command="{Binding NumberButton_OnClick}" CommandParameter="1">1</Button>
+                <Button Grid.Row="2" Grid.Column="1" Command="{Binding NumberButton_OnClick}" CommandParameter="2" Tag="2">2</Button>
+                <Button Grid.Row="2" Grid.Column="2" Command="{Binding NumberButton_OnClick}" CommandParameter="3" Tag="3">3</Button>
+                <Button Grid.Row="1" Grid.Column="0" Command="{Binding NumberButton_OnClick}" CommandParameter="4" Tag="4">4</Button>
+                <Button Grid.Row="1" Grid.Column="1" Command="{Binding NumberButton_OnClick}" CommandParameter="5" Tag="5">5</Button>
+                <Button Grid.Row="1" Grid.Column="2" Command="{Binding NumberButton_OnClick}" CommandParameter="6" Tag="6">6</Button>
+                <Button Grid.Row="0" Grid.Column="0" Command="{Binding NumberButton_OnClick}" CommandParameter="7" Tag="7">7</Button>
+                <Button Grid.Row="0" Grid.Column="1" Command="{Binding NumberButton_OnClick}" CommandParameter="8" Tag="8">8</Button>
+                <Button Grid.Row="0" Grid.Column="2" Command="{Binding NumberButton_OnClick}" CommandParameter="9" Tag="9">9</Button>
+                <Button Grid.Row="3" Grid.Column="0" Command="{Binding NumberButton_OnClick}" CommandParameter="0" Tag="0">0</Button>
+                <Button Grid.Row="3" Grid.Column="1" Command="{Binding DecimalSeparator_OnClick}" Content="{Binding DecimalSeparator}"></Button>
+                
+                <Button Grid.Row="1" Grid.Column="3" Command="{Binding OperationButton_OnClick}" CommandParameter="+">+</Button>
+                <Button Grid.Row="2" Grid.Column="3" Command="{Binding OperationButton_OnClick}" CommandParameter="-">-</Button>
+                <Button Grid.Row="3" Grid.Column="3" Command="{Binding OperationButton_OnClick}" CommandParameter="*">*</Button>
+                <Button Grid.Row="3" Grid.Column="2" Command="{Binding OperationButton_OnClick}" CommandParameter="/">/</Button>
+                <Button Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Width="194" Command="{Binding EqualsButton_OnClick}">=</Button>
+                
+                <Button Grid.Row="0" Grid.Column="3" Command="{Binding ClearButton_OnClick}">CE</Button>
+                <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Width="194" Command="{Binding BackspaceButton_OnClick}">BACK</Button>
+            </Grid>
+        </StackPanel>    
+    </DockPanel>
+
+</Window>
