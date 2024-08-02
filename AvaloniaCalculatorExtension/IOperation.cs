@@ -1,4 +1,4 @@
-namespace AvaloniaCalculator.Models.Operations;
+namespace AvaloniaCalculatorExtension;
 
 public interface IOperation
 {

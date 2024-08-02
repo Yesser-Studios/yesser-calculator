@@ -1,3 +1,5 @@
+using AvaloniaCalculatorExtension;
+
 namespace AvaloniaCalculator.Models.Operations;
 
 public class Division : IOperation

@@ -7,6 +7,7 @@ using AvaloniaCalculator.Helpers;
 using AvaloniaCalculator.Models;
 using AvaloniaCalculator.Models.Operations;
 using AvaloniaCalculator.Utilities;
+using AvaloniaCalculatorExtension;
 
 namespace AvaloniaCalculator.ViewModels;
 
