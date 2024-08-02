@@ -8,7 +8,7 @@ using AvaloniaCalculator.Utilities;
 
 namespace AvaloniaCalculator.ViewModels;
 
-public partial class MainWindowViewModel : ViewModelBase
+public partial class MainWindowViewModel(OperationFactory operationFactory) : ViewModelBase
 {
 #pragma warning disable CA1822 // Mark members as static
     private double _number1;
@@ -18,7 +18,8 @@ public partial class MainWindowViewModel : ViewModelBase
     private IOperation? _currentOperation;
     private bool _appendDecimalSeparator;
     private bool _decimalSeparatorInside;
-    
+    private OperationFactory _operationFactory = operationFactory;
+
     public string DecimalSeparator
         => LocalizationHelper.DecimalSeparator;
 
