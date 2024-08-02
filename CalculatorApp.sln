@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YesserCalculatorExtension",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YesserCalculator.BaseOperations", "YesserCalculator.BaseOperations\YesserCalculator.BaseOperations.csproj", "{0A73CEA0-10DE-4D61-92C4-78967111D83C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleExtension", "ExampleExtension\ExampleExtension.csproj", "{CF1502F5-99BE-4406-BA81-A54F56B39949}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{0A73CEA0-10DE-4D61-92C4-78967111D83C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A73CEA0-10DE-4D61-92C4-78967111D83C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A73CEA0-10DE-4D61-92C4-78967111D83C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF1502F5-99BE-4406-BA81-A54F56B39949}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF1502F5-99BE-4406-BA81-A54F56B39949}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF1502F5-99BE-4406-BA81-A54F56B39949}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF1502F5-99BE-4406-BA81-A54F56B39949}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
