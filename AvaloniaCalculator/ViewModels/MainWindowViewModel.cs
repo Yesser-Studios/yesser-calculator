@@ -4,6 +4,7 @@ using System.Linq;
 using AvaloniaCalculator.Helpers;
 using AvaloniaCalculator.Models;
 using AvaloniaCalculator.Models.Operations;
+using AvaloniaCalculator.Utilities;
 
 namespace AvaloniaCalculator.ViewModels;
 
