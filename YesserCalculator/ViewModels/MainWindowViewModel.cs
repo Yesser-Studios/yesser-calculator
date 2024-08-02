@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -198,6 +199,23 @@ public partial class MainWindowViewModel : ViewModelBase
     public void ViewSourceCode_OnClick()
     {
         UrlOpener.OpenUrl("https://github.com/yesseruser/avalonia-calculator");
+    }
+
+    public void OpenExtensionsDirectory_OnClick()
+    {
+        try
+        {
+            ProcessStartInfo startInfo = new(App.ExtensionDirectoryPath)
+            {
+                UseShellExecute = true
+            };
+            
+            Process.Start(startInfo);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Unable to open extension directory: {e}");
+        }
     }
 #pragma warning restore CA1822 // Mark members as static
 }
