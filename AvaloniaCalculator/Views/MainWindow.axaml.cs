@@ -13,7 +13,8 @@ public partial class MainWindow : Window
         InitializeComponent();
         
         int rowCount = 5;
-        int columnCount = (int)Math.Ceiling(operationFactory.OperationMap.Count / (double)rowCount);
+        int columnCount = (int)Math.Ceiling((operationFactory.OperationMap.Count - 4) / (double)rowCount);
+        
         for (int i = 0; i < columnCount; i++) 
             MainGrid.ColumnDefinitions.Add(new ColumnDefinition(new GridLength(100)));
 
@@ -29,10 +30,31 @@ public partial class MainWindow : Window
 
             button.Click += OperationButton_Click;
 
-            button.SetValue(Grid.RowProperty, row);
-            button.SetValue(Grid.ColumnProperty, column);
+            switch (symbol)
+            {
+                case "+":
+                    button.SetValue(Grid.RowProperty, 1);
+                    button.SetValue(Grid.ColumnProperty, 3);
+                    break;
+                case "-":
+                    button.SetValue(Grid.RowProperty, 2);
+                    button.SetValue(Grid.ColumnProperty, 3);
+                    break;
+                case "*":
+                    button.SetValue(Grid.RowProperty, 3);
+                    button.SetValue(Grid.ColumnProperty, 3);
+                    break;
+                case "/":
+                    button.SetValue(Grid.RowProperty, 3);
+                    button.SetValue(Grid.ColumnProperty, 2);
+                    break;
+                default:
+                    button.SetValue(Grid.RowProperty, row);
+                    button.SetValue(Grid.ColumnProperty, column);
+                    row++;
+                    break;
+            }
 
-            row++;
             if (row >= rowCount)
             {
                 row = 0;
