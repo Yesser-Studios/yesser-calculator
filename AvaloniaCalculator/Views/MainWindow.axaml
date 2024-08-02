@@ -48,7 +48,7 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Source">
-                <MenuItem Header="View source code on GitHub"></MenuItem>
+                <MenuItem Header="View source code on GitHub" Command="{Binding ViewSourceCode_OnClick}" />
             </MenuItem>
         </Menu>
         
