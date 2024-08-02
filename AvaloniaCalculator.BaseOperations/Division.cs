@@ -1,6 +1,6 @@
 using AvaloniaCalculatorExtension;
 
-namespace AvaloniaCalculator.Models.Operations;
+namespace AvaloniaCalculator.BaseOperations;
 
 public class Division : IOperation
 {

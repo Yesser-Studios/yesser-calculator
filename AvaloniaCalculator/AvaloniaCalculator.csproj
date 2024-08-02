@@ -25,6 +25,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\AvaloniaCalculator.BaseOperations\AvaloniaCalculator.BaseOperations.csproj" />
       <ProjectReference Include="..\AvaloniaCalculatorExtension\AvaloniaCalculatorExtension.csproj" />
     </ItemGroup>
 </Project>
