@@ -1,4 +1,4 @@
-namespace AvaloniaCalculatorExtension;
+namespace YesserCalculatorExtension;
 
 public interface IOperation
 {

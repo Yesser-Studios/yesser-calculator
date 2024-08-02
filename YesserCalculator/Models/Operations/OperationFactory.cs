@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using AvaloniaCalculatorExtension;
+using YesserCalculatorExtension;
 
-namespace AvaloniaCalculator.Models.Operations;
+namespace YesserCalculator.Models.Operations;
 
 public class OperationFactory
 {

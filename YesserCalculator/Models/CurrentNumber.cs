@@ -1,4 +1,4 @@
-namespace AvaloniaCalculator.Models;
+namespace YesserCalculator.Models;
 
 public enum CurrentNumber
 {

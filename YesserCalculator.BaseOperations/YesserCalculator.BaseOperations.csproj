@@ -4,6 +4,11 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RootNamespace>YesserCalculator.BaseOperations</RootNamespace>
     </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\YesserCalculatorExtension\YesserCalculatorExtension.csproj" />
+    </ItemGroup>
 
 </Project>

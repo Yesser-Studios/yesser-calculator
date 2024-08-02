@@ -1,10 +1,10 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using AvaloniaCalculator.Models.Operations;
-using AvaloniaCalculator.ViewModels;
+using YesserCalculator.Models.Operations;
+using YesserCalculator.ViewModels;
 
-namespace AvaloniaCalculator.Views;
+namespace YesserCalculator.Views;
 
 public partial class MainWindow : Window
 {

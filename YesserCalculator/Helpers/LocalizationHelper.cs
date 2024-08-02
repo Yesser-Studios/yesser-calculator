@@ -1,6 +1,6 @@
 using System.Threading;
 
-namespace AvaloniaCalculator.Helpers;
+namespace YesserCalculator.Helpers;
 
 public static class LocalizationHelper
 {

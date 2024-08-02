@@ -3,13 +3,13 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using AvaloniaCalculator.Helpers;
-using AvaloniaCalculator.Models;
-using AvaloniaCalculator.Models.Operations;
-using AvaloniaCalculator.Utilities;
-using AvaloniaCalculatorExtension;
+using YesserCalculator.Helpers;
+using YesserCalculator.Models;
+using YesserCalculator.Models.Operations;
+using YesserCalculator.Utilities;
+using YesserCalculatorExtension;
 
-namespace AvaloniaCalculator.ViewModels;
+namespace YesserCalculator.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
 {

@@ -1,9 +1,9 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using AvaloniaCalculator.ViewModels;
+using YesserCalculator.ViewModels;
 
-namespace AvaloniaCalculator;
+namespace YesserCalculator;
 
 public class ViewLocator : IDataTemplate
 {

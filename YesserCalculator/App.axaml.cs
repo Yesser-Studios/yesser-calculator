@@ -1,15 +1,16 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
-using AvaloniaCalculator.Models.Operations;
-using AvaloniaCalculator.ViewModels;
-using AvaloniaCalculator.Views;
-using AvaloniaCalculatorExtension;
+using YesserCalculator.Models.Operations;
+using YesserCalculator.ViewModels;
+using YesserCalculator.Views;
+using YesserCalculatorExtension;
 
-namespace AvaloniaCalculator;
+namespace YesserCalculator;
 
 public partial class App : Application
 {
@@ -20,6 +21,10 @@ public partial class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
+        string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData,
+            Environment.SpecialFolderOption.Create);
+        string pluginDirectoryPath = Path.Join(appDataPath, "YesserCalculator", "Plugins");
+        
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             var factory = new OperationFactory();

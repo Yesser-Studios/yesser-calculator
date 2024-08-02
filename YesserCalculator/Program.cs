@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using System;
 
-namespace AvaloniaCalculator;
+namespace YesserCalculator;
 
 sealed class Program
 {

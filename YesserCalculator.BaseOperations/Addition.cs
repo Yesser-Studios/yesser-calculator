@@ -1,6 +1,6 @@
-using AvaloniaCalculatorExtension;
+using YesserCalculatorExtension;
 
-namespace AvaloniaCalculator.BaseOperations;
+namespace YesserCalculator.BaseOperations;
 
 public class Addition : IOperation
 {

@@ -6,6 +6,7 @@
         <entry key="AvaloniaCalculator/App.axaml" value="AvaloniaCalculator/AvaloniaCalculator.csproj" />
         <entry key="AvaloniaCalculator/Views/MainWindow.axaml" value="AvaloniaCalculator/AvaloniaCalculator.csproj" />
         <entry key="CalculatorApp/MainWindow.axaml" value="CalculatorApp/CalculatorApp.csproj" />
+        <entry key="YesserCalculator/Views/MainWindow.axaml" value="YesserCalculator/YesserCalculator.csproj" />
       </map>
     </option>
   </component>

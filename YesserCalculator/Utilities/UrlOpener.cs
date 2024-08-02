@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace AvaloniaCalculator.Utilities;
+namespace YesserCalculator.Utilities;
 
 public static class UrlOpener
 {

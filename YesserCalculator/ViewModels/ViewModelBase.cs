@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace AvaloniaCalculator.ViewModels;
+namespace YesserCalculator.ViewModels;
 
 public class ViewModelBase : ObservableObject
 {

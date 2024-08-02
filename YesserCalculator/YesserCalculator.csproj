@@ -6,6 +6,7 @@
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
         <ApplicationManifest>app.manifest</ApplicationManifest>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+        <RootNamespace>YesserCalculator</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -25,7 +26,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\AvaloniaCalculator.BaseOperations\AvaloniaCalculator.BaseOperations.csproj" />
-      <ProjectReference Include="..\AvaloniaCalculatorExtension\AvaloniaCalculatorExtension.csproj" />
+      <ProjectReference Include="..\YesserCalculator.BaseOperations\YesserCalculator.BaseOperations.csproj" />
+      <ProjectReference Include="..\YesserCalculatorExtension\YesserCalculatorExtension.csproj" />
     </ItemGroup>
 </Project>

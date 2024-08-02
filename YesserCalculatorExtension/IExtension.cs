@@ -1,11 +1,11 @@
-namespace AvaloniaCalculatorExtension;
+namespace YesserCalculatorExtension;
 
 /// <summary>
     /// <para>
         /// The Extension interface.
     /// </para>
     /// <para>
-        /// All extensions meant to be loaded directly by Avalonia Calculator should be named exactly "Extension".
+        /// All extensions meant to be loaded directly by Yesser Calculator should be named exactly "Extension".
     /// </para>
 /// </summary>
 public interface IExtension
