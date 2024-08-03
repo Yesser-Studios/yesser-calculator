@@ -6,7 +6,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YesserCalculatorExtension",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YesserCalculator.BaseOperations", "YesserCalculator.BaseOperations\YesserCalculator.BaseOperations.csproj", "{0A73CEA0-10DE-4D61-92C4-78967111D83C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleExtension", "ExampleExtension\ExampleExtension.csproj", "{CF1502F5-99BE-4406-BA81-A54F56B39949}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YesserCalculator.ExtensionTemplate", "YesserCalculator.ExtensionTemplate\YesserCalculator.ExtensionTemplate.csproj", "{CF1502F5-99BE-4406-BA81-A54F56B39949}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

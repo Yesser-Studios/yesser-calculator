@@ -27,7 +27,11 @@ public partial class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            Installer.TryInstallExtension(Assembly.GetAssembly(typeof(BaseOperations.Extension))!, out _, true);
+            Installer.TryInstallExtension(Assembly.GetAssembly(typeof(BaseOperations.Extension))!, out var exception, true);
+            if (exception != null)
+            {
+                Console.Error.WriteLine($"Unable to install default operations extension due to exception: {exception}");
+            }
             
             var factory = ExtensionLoader.LoadAllOperations(AppDataProvider.ExtensionDirectoryPath, out _, out _, out _);
             
