@@ -8,7 +8,7 @@ public class Extension : IExtension
         => "f0581238-911f-49a0-97e1-4498ff642ae0";
 
     public string DisplayName
-        => "Example Extension";
+        => "ExtensionTemplate";
 
     public IEnumerable<IOperation> GetOperationList()
     {
