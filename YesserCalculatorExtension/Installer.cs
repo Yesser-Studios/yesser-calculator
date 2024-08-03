@@ -27,10 +27,11 @@ public static class Installer
         try
         {
             var assemblyPath = assembly.Location;
+            var targetPath = Path.Join(AppDataProvider.ExtensionDirectoryPath,
+                Path.GetFileName(assemblyPath));
 
             if (!unattended
-                && File.Exists(Path.Join(AppDataProvider.ExtensionDirectoryPath,
-                    Path.GetFileName(assembly.Location))))
+                && File.Exists(targetPath))
             {
                 
                 var update = AskFor("Do you want to update the already installed version of this extension?");
@@ -41,7 +42,7 @@ public static class Installer
                 }
             }
 
-            Console.WriteLine(assemblyPath);
+            File.Copy(assemblyPath, targetPath, true);
             return true;
         }
         catch (Exception ex)
@@ -58,6 +59,7 @@ public static class Installer
         if (line == null) return AskFor(question);
         return line.ToLower() switch
         {
+            "" => true,
             "y" => true,
             "n" => false,
             _ => AskFor(question)
