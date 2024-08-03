@@ -10,5 +10,7 @@ namespace YesserCalculatorExtension;
 /// </summary>
 public interface IExtension
 {
+    public string Id { get; }
+    
     public IEnumerable<IOperation> GetOperationList();
 }
