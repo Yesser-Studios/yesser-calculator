@@ -1,0 +1,66 @@
+using System.Reflection;
+using YesserCalculatorExtension.Exceptions;
+using YesserCalculatorExtension.Utilities;
+
+namespace YesserCalculatorExtension;
+
+public static class Installer
+{
+    public static void StartInstallation(Assembly assembly, out Exception? exception)
+    {
+        var install = AskFor("Do you want to install this extension?");
+        if (!install)
+        {
+            exception = new UserCancelledException("User cancelled installation");
+            return;
+        }
+        
+        Console.WriteLine("Installing extension...");
+        var installed = TryInstallExtension(assembly, out exception);
+        Console.WriteLine(installed ? "Successfully installed." : $"Failed to install because: {exception}");
+    }
+
+    public static bool TryInstallExtension(Assembly assembly, out Exception? exception, bool unattended = false)
+    {
+        exception = null;
+        
+        try
+        {
+            var assemblyPath = assembly.Location;
+
+            if (!unattended
+                && File.Exists(Path.Join(AppDataProvider.ExtensionDirectoryPath,
+                    Path.GetFileName(assembly.Location))))
+            {
+                
+                var update = AskFor("Do you want to update the already installed version of this extension?");
+                if (!update)
+                {
+                    exception = new UserCancelledException("Update cancelled by user.");
+                    return false;
+                }
+            }
+
+            Console.WriteLine(assemblyPath);
+            return true;
+        }
+        catch (Exception ex)
+        {
+            exception = ex;
+            return false;
+        }
+    }
+
+    private static bool AskFor(string question)
+    {
+        Console.Write($"{question} (Y/n): ");
+        var line = Console.ReadLine();
+        if (line == null) return AskFor(question);
+        return line.ToLower() switch
+        {
+            "y" => true,
+            "n" => false,
+            _ => AskFor(question)
+        };
+    }
+}

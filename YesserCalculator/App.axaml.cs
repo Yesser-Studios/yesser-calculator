@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
 using YesserCalculator.Helpers;
 using YesserCalculator.Models.Operations;
+using YesserCalculator.Utilities;
 using YesserCalculator.ViewModels;
 using YesserCalculator.Views;
 using YesserCalculatorExtension;
@@ -25,37 +27,9 @@ public partial class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            var factory = new OperationFactory();
-            List<IOperation> operations = [];
+            Installer.TryInstallExtension(Assembly.GetAssembly(typeof(BaseOperations.Extension))!, out _, true);
             
-            var baseExtension = new BaseOperations.Extension();
-            operations.AddRange(baseExtension.GetOperationList());
-
-            if (!Directory.Exists(AppDataProvider.ExtensionDirectoryPath))
-                Directory.CreateDirectory(AppDataProvider.ExtensionDirectoryPath);
-            
-            var extensionPaths = Directory.GetFiles(AppDataProvider.ExtensionDirectoryPath);
-            foreach (var path in extensionPaths)
-            {
-                var loaded = ExtensionHelper.TryLoadPlugin(path, out var newOperations, out var exception);
-                if (!loaded)
-                {
-                    Console.WriteLine($"Unable to load extension: {path}. Exception: {exception}");
-                    continue;
-                }
-                
-                operations.AddRange(newOperations);
-            }
-            
-            // Add extension loading
-            
-            foreach (var operation in operations)
-            {
-                bool registered = factory.TryRegisterOperation(operation, out var exception);
-                if (registered) continue;
-
-                Console.WriteLine($"Failed to load: {operation.Symbol}. Exception message: {exception?.Message}");
-            }
+            var factory = ExtensionLoader.LoadAllOperations(AppDataProvider.ExtensionDirectoryPath, out _, out _, out _);
             
             // Line below is needed to remove Avalonia data validation.
             // Without this line you will get duplicate validations from both Avalonia and CT
