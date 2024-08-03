@@ -17,7 +17,7 @@ public static class Installer
         
         Console.WriteLine("Installing extension...");
         var installed = TryInstallExtension(assembly, out exception);
-        Console.WriteLine(installed ? "Successfully installed." : $"Failed to install because: {exception}");
+        Console.WriteLine(installed ? "Successfully installed." : $"Failed to install because: {exception?.Message}");
     }
 
     public static bool TryInstallExtension(Assembly assembly, out Exception? exception, bool unattended = false)
