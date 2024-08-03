@@ -7,6 +7,6 @@ public static class Program
 {
     private static void Main(string[] args)
     {
-        Installer.StartInstallation(Assembly.GetExecutingAssembly(), out _);
+        Installer.StartInstallation(Assembly.GetAssembly(typeof(Extension))!, new Extension().DisplayName,  out _);
     }
 }

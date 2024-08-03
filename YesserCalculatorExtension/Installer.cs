@@ -6,9 +6,9 @@ namespace YesserCalculatorExtension;
 
 public static class Installer
 {
-    public static void StartInstallation(Assembly assembly, out Exception? exception)
+    public static void StartInstallation(Assembly assembly, string displayName, out Exception? exception)
     {
-        var install = AskFor("Do you want to install this extension?");
+        var install = AskFor($"Do you want to install extension {displayName}?");
         if (!install)
         {
             exception = new UserCancelledException("User cancelled installation");
