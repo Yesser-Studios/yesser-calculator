@@ -54,7 +54,19 @@ jobs:
         run: dotnet tool restore
 
       - name: Build
-        run: dotnet publish YesserCalculator/YesserCalculator.csproj -c Release -p:Version=${{ github.event.release.tag_name }} -o ./release
+        run: dotnet publish YesserCalculator/YesserCalculator.csproj -c Release -p:Version=${{ github.event.release.tag_name }} -o ./Template.app/Contents/MacOS
+
+      - name: Compress
+        run: tar -cvzf compress.tar.gz ./Template.app
+
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: compress.tar.gz
+          asset_name: MacOS-$tag.app.tar.gz
+          tag: ${{ github.ref }}
+          overwrite: true
 
   build-linux:
     name: Build for Linux
