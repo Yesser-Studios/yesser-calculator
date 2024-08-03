@@ -13,7 +13,7 @@
         <RepositoryUrl>https://github.com/Yesser-Studios/yesser-calculator</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>extension, yesser-calculator</PackageTags>
-        <PackageLicenseExpression>gpl-3.0</PackageLicenseExpression>
+        <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
