@@ -12,5 +12,7 @@ public interface IExtension
 {
     public string Id { get; }
     
+    public string DisplayName { get; }
+    
     public IEnumerable<IOperation> GetOperationList();
 }
