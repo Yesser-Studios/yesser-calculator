@@ -10,7 +10,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\YesserCalculator.Extension\YesserCalculator.Extension.csproj" />
+      <PackageReference Include="YesserCalculator.Extension" Version="1.0.0" />
     </ItemGroup>
 
     <ItemGroup>
