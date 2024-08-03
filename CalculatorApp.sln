@@ -6,7 +6,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YesserCalculator.Extension"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YesserCalculator.BaseOperations", "YesserCalculator.BaseOperations\YesserCalculator.BaseOperations.csproj", "{0A73CEA0-10DE-4D61-92C4-78967111D83C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YesserCalculator.ExtensionTemplate", "YesserCalculator.ExtensionTemplates\content\YesserCalculator.ExtensionTemplate\YesserCalculator.ExtensionTemplate.csproj", "{B670C8F5-097D-4776-BBA1-35413D5830D6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YesserCalculator.ExtensionTemplates", "YesserCalculator.ExtensionTemplates\YesserCalculator.ExtensionTemplates.csproj", "{5C997573-2231-4157-983B-2AF3E390862E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,9 +26,9 @@ Global
 		{0A73CEA0-10DE-4D61-92C4-78967111D83C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A73CEA0-10DE-4D61-92C4-78967111D83C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A73CEA0-10DE-4D61-92C4-78967111D83C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B670C8F5-097D-4776-BBA1-35413D5830D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B670C8F5-097D-4776-BBA1-35413D5830D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B670C8F5-097D-4776-BBA1-35413D5830D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B670C8F5-097D-4776-BBA1-35413D5830D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C997573-2231-4157-983B-2AF3E390862E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C997573-2231-4157-983B-2AF3E390862E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C997573-2231-4157-983B-2AF3E390862E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C997573-2231-4157-983B-2AF3E390862E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
