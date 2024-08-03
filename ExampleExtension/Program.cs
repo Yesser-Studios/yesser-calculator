@@ -1,8 +1,5 @@
-using System.Net;
 using System.Reflection;
 using YesserCalculatorExtension;
-using YesserCalculatorExtension.Exceptions;
-using YesserCalculatorExtension.Utilities;
 
 namespace ExampleExtension;
 
