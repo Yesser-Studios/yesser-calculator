@@ -10,23 +10,12 @@ using YesserCalculator.Models.Operations;
 using YesserCalculator.ViewModels;
 using YesserCalculator.Views;
 using YesserCalculatorExtension;
+using YesserCalculatorExtension.Utilities;
 
 namespace YesserCalculator;
 
 public partial class App : Application
 {
-    private static string BaseAppDataPath
-        => Environment.GetFolderPath(
-            Environment.SpecialFolder.LocalApplicationData,
-            Environment.SpecialFolderOption.Create);
-
-    public static string AppDataPath =>
-        Path.Join(BaseAppDataPath, "YesserCalculator");
-
-    public static string ExtensionDirectoryPath =>
-        Path.Join(AppDataPath, "Extensions");
-    
-    
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
@@ -42,10 +31,10 @@ public partial class App : Application
             var baseExtension = new BaseOperations.Extension();
             operations.AddRange(baseExtension.GetOperationList());
 
-            if (!Directory.Exists(ExtensionDirectoryPath))
-                Directory.CreateDirectory(ExtensionDirectoryPath);
+            if (!Directory.Exists(AppDataProvider.ExtensionDirectoryPath))
+                Directory.CreateDirectory(AppDataProvider.ExtensionDirectoryPath);
             
-            var extensionPaths = Directory.GetFiles(ExtensionDirectoryPath);
+            var extensionPaths = Directory.GetFiles(AppDataProvider.ExtensionDirectoryPath);
             foreach (var path in extensionPaths)
             {
                 var loaded = ExtensionHelper.TryLoadPlugin(path, out var newOperations, out var exception);

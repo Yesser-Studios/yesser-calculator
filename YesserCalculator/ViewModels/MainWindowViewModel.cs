@@ -9,6 +9,7 @@ using YesserCalculator.Models;
 using YesserCalculator.Models.Operations;
 using YesserCalculator.Utilities;
 using YesserCalculatorExtension;
+using YesserCalculatorExtension.Utilities;
 
 namespace YesserCalculator.ViewModels;
 
@@ -205,7 +206,7 @@ public partial class MainWindowViewModel : ViewModelBase
     {
         try
         {
-            ProcessStartInfo startInfo = new(App.ExtensionDirectoryPath)
+            ProcessStartInfo startInfo = new(AppDataProvider.ExtensionDirectoryPath)
             {
                 UseShellExecute = true
             };
