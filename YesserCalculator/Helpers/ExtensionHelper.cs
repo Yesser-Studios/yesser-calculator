@@ -8,9 +8,11 @@ namespace YesserCalculator.Helpers;
 
 public static class ExtensionHelper
 {
-    public static bool TryLoadPlugin(string path, out IEnumerable<IOperation> result)
+    public static bool TryLoadPlugin(string path, out IEnumerable<IOperation> result, out Exception? exception)
     {
         result = [];
+        exception = null;
+        
         try
         {
             var assembly = Assembly.LoadFile(path);
@@ -24,8 +26,9 @@ public static class ExtensionHelper
 
             return true;
         }
-        catch
+        catch (Exception ex)
         {
+            exception = ex;
             return false;
         }
     }

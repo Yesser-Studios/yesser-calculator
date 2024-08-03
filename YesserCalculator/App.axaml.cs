@@ -48,9 +48,12 @@ public partial class App : Application
             var extensionPaths = Directory.GetFiles(ExtensionDirectoryPath);
             foreach (var path in extensionPaths)
             {
-                var loaded = ExtensionHelper.TryLoadPlugin(path, out var newOperations);
+                var loaded = ExtensionHelper.TryLoadPlugin(path, out var newOperations, out var exception);
                 if (!loaded)
+                {
+                    Console.WriteLine($"Unable to load extension: {path}. Exception: {exception}");
                     continue;
+                }
                 
                 operations.AddRange(newOperations);
             }
