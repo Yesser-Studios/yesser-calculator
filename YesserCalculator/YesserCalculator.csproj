@@ -27,6 +27,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\YesserCalculator.BaseOperations\YesserCalculator.BaseOperations.csproj" />
-      <ProjectReference Include="..\YesserCalculatorExtension\YesserCalculatorExtension.csproj" />
+      <ProjectReference Include="..\YesserCalculator.Extension\YesserCalculator.Extension.csproj" />
     </ItemGroup>
 </Project>

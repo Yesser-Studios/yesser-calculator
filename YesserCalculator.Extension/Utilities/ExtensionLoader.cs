@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using YesserCalculator.Models.Operations;
-using YesserCalculatorExtension;
+using YesserCalculator.Extension;
 
 namespace YesserCalculator.Utilities;
 

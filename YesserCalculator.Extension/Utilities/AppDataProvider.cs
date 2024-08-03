@@ -1,4 +1,4 @@
-namespace YesserCalculatorExtension.Utilities;
+namespace YesserCalculator.Extension.Utilities;
 
 public class AppDataProvider
 {

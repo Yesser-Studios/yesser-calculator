@@ -1,8 +1,8 @@
 using System.Reflection;
-using YesserCalculatorExtension.Exceptions;
-using YesserCalculatorExtension.Utilities;
+using YesserCalculator.Extension.Exceptions;
+using YesserCalculator.Extension.Utilities;
 
-namespace YesserCalculatorExtension;
+namespace YesserCalculator.Extension;
 
 public static class Installer
 {

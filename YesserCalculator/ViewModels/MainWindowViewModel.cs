@@ -8,8 +8,8 @@ using YesserCalculator.Helpers;
 using YesserCalculator.Models;
 using YesserCalculator.Models.Operations;
 using YesserCalculator.Utilities;
-using YesserCalculatorExtension;
-using YesserCalculatorExtension.Utilities;
+using YesserCalculator.Extension;
+using YesserCalculator.Extension.Utilities;
 
 namespace YesserCalculator.ViewModels;
 

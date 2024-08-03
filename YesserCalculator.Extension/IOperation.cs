@@ -1,4 +1,4 @@
-namespace YesserCalculatorExtension;
+namespace YesserCalculator.Extension;
 
 public interface IOperation
 {

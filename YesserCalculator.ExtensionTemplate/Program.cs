@@ -1,7 +1,8 @@
 using System.Reflection;
-using YesserCalculatorExtension;
+using ExtensionTemplate;
+using YesserCalculator.Extension;
 
-namespace ExampleExtension;
+namespace ExtensionTemplate;
 
 public static class Program
 {

@@ -11,8 +11,8 @@ using YesserCalculator.Models.Operations;
 using YesserCalculator.Utilities;
 using YesserCalculator.ViewModels;
 using YesserCalculator.Views;
-using YesserCalculatorExtension;
-using YesserCalculatorExtension.Utilities;
+using YesserCalculator.Extension;
+using YesserCalculator.Extension.Utilities;
 
 namespace YesserCalculator;
 

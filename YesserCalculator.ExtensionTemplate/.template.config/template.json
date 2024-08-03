@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Yesser Studios",
+  "classifications": [ "Yesser Calculator", "Extension" ],
+  "identity": "YesserCalculator.ExtensionTemplate",
+  "name": "Yesser Calculator Extension",
+  "shortName": "ycalcext",
+  "sourceName":"ExtensionTemplate",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  }
+}

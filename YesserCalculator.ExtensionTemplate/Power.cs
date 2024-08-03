@@ -1,6 +1,6 @@
-using YesserCalculatorExtension;
+using YesserCalculator.Extension;
 
-namespace ExampleExtension;
+namespace ExtensionTemplate;
 
 public class Power : IOperation
 {

@@ -1,4 +1,4 @@
-namespace YesserCalculatorExtension.Exceptions;
+namespace YesserCalculator.Extension.Exceptions;
 
 public class UserCancelledException : Exception
 {

@@ -1,4 +1,4 @@
-using YesserCalculatorExtension;
+using YesserCalculator.Extension;
 
 namespace YesserCalculator.BaseOperations;
 

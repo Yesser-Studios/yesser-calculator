@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using YesserCalculatorExtension;
+using YesserCalculator.Extension;
 
 namespace YesserCalculator.Models.Operations;
 

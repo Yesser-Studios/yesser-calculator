@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\YesserCalculatorExtension\YesserCalculatorExtension.csproj" />
+      <ProjectReference Include="..\YesserCalculator.Extension\YesserCalculator.Extension.csproj" />
     </ItemGroup>
 
 </Project>

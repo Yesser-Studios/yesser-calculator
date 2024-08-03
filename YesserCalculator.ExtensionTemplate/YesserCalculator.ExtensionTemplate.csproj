@@ -5,11 +5,16 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <OutputType>Exe</OutputType>
-        <RootNamespace>ExampleExtension</RootNamespace>
+        <RootNamespace>ExtensionTemplate</RootNamespace>
+        <AssemblyName>ExtensionTemplate</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\YesserCalculatorExtension\YesserCalculatorExtension.csproj" />
+      <ProjectReference Include="..\YesserCalculator.Extension\YesserCalculator.Extension.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include=".template.config\template.json" />
     </ItemGroup>
 
 </Project>
