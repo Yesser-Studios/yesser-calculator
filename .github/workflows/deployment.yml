@@ -55,10 +55,12 @@ jobs:
         run: dotnet tool restore
 
       - name: Build
-        run: dotnet publish YesserCalculator/YesserCalculator.csproj -c Release -p:Version=${{ github.event.release.tag_name }} -o ./Template.app/Contents/MacOS
+        run: |
+          dotnet publish YesserCalculator/YesserCalculator.csproj -c Release -p:Version=${{ github.event.release.tag_name }} -o ./Template.app/Contents/MacOS
+          mv ./Template.app "./Yesser Calculator.app"
 
       - name: Compress
-        run: tar -cvzf compress.tar.gz ./Template.app
+        run: tar -cvzf compress.tar.gz "./Yesser Calculator.app"
 
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
