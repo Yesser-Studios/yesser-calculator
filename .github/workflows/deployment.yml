@@ -115,7 +115,9 @@ jobs:
         run: dotnet tool restore
 
       - name: Build
-        run: dotnet pack YesserCalculator.Extension/YesserCalculator.Extension.csproj -c Release -p:Version=${{ github.event.release.tag_name }} -o ./release
+        run: |
+          dotnet build YesserCalculator.Extension/YesserCalculator.Extension.csproj -c Release -p:Version=${{ github.event.release.tag_name }}
+          dotnet pack YesserCalculator.Extension/YesserCalculator.Extension.csproj -c Release -p:Version=${{ github.event.release.tag_name }} -o ./release
 
       - name: Publish NuGet package
         run: |
