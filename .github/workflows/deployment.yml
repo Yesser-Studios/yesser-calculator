@@ -113,12 +113,11 @@ jobs:
       - name: Restore Tools
         run: dotnet tool restore
 
+      - name: Build
+        run: dotnet publish YesserCalculator.Extension/YesserCalculator.Extension.csproj -c Release -p:Version=${{ github.event.release.tag_name }} -o ./release
+
       - name: Publish NuGet package
         run: |
           foreach($file in (Get-ChildItem "${{ env.NuGetDirectory }}" -Recurse -Include *.nupkg)) {
               dotnet nuget push $file --api-key "${{ secrets.NUGET_APIKEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
           }
-
-      - name: Build
-        run: dotnet publish YesserCalculator.Extension/YesserCalculator.Extension.csproj -c Release -p:Version=${{ github.event.release.tag_name }} -o ./release
-      
