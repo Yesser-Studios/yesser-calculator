@@ -24,10 +24,11 @@ jobs:
         run: dotnet tool restore
 
       - name: Build
-        run: dotnet pack YesserCalculator/YesserCalculator.csproj -c Release -p:Version=${{ github.event.release.tag_name }} -o ./release
+        run: dotnet publish YesserCalculator/YesserCalculator.csproj -c Release -p:Version=${{ github.event.release.tag_name }} -o ./release
       
       - name: Compress
-        run: tar -cvzf compress.zip ./release/*
+        run: Compress-Archive ./release compress.zip
+        shell: pwsh
 
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
@@ -114,7 +115,7 @@ jobs:
         run: dotnet tool restore
 
       - name: Build
-        run: dotnet publish YesserCalculator.Extension/YesserCalculator.Extension.csproj -c Release -p:Version=${{ github.event.release.tag_name }} -o ./release
+        run: dotnet pack YesserCalculator.Extension/YesserCalculator.Extension.csproj -c Release -p:Version=${{ github.event.release.tag_name }} -o ./release
 
       - name: Publish NuGet package
         run: |
@@ -138,7 +139,7 @@ jobs:
         run: dotnet tool restore
 
       - name: Build
-        run: dotnet publish YesserCalculator.ExtensionTemplates/YesserCalculator.ExtensionTemplates.csproj -c Release -p:PackageVersion=${{ github.event.release.tag_name }} -o ./release
+        run: dotnet pack YesserCalculator.ExtensionTemplates/YesserCalculator.ExtensionTemplates.csproj -c Release -p:PackageVersion=${{ github.event.release.tag_name }} -o ./release
 
       - name: Publish NuGet package
         run: |
