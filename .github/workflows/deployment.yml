@@ -24,7 +24,7 @@ jobs:
         run: dotnet tool restore
 
       - name: Build
-        run: dotnet publish YesserCalculator/YesserCalculator.csproj -c Release -p:Version=${{ github.event.release.tag_name }} -o ./release
+        run: dotnet pack YesserCalculator/YesserCalculator.csproj -c Release -p:Version=${{ github.event.release.tag_name }} -o ./release
       
       - name: Compress
         run: tar -cvzf compress.zip ./release/*
