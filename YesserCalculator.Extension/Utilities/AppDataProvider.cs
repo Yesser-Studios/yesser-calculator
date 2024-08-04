@@ -12,4 +12,10 @@ public class AppDataProvider
 
     public static string ExtensionDirectoryPath =>
         Path.Join(AppDataPath, "Extensions");
+
+    public static void CreateExtensionDirectory()
+    {
+        if (!Directory.Exists(ExtensionDirectoryPath))
+            Directory.CreateDirectory(ExtensionDirectoryPath);
+    }
 }
