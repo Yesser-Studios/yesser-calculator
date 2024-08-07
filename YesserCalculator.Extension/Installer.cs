@@ -29,6 +29,8 @@ public static class Installer
             var assemblyPath = assembly.Location;
             var targetPath = Path.Join(AppDataProvider.ExtensionDirectoryPath,
                 Path.GetFileName(assemblyPath));
+            
+            AppDataProvider.CreateExtensionDirectory();
 
             if (!unattended
                 && File.Exists(targetPath))

@@ -1,10 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Reflection;
 using YesserCalculator.Models.Operations;
 using YesserCalculator.Extension;
+using YesserCalculator.Extension.Utilities;
 
 namespace YesserCalculator.Utilities;
 
@@ -50,9 +47,8 @@ public static class ExtensionLoader
         exceptions = exceptionList;
         extensions = loadedExtensions;
         ids = loadedIds;
-
-        if (!Directory.Exists(directory))
-            Directory.CreateDirectory(directory);
+        
+        AppDataProvider.CreateExtensionDirectory();
         
         var extensionPaths = Directory.GetFiles(directory);
         
