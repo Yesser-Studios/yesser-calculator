@@ -7,11 +7,11 @@ namespace YesserCalculator.Utilities;
 
 public static class AssemblySelector
 {
-    public static async Task<IEnumerable<Assembly>> SelectAssemblies(IStorageProvider storageProvider)
+    public static async Task<IEnumerable<Assembly>> SelectAssemblies(IStorageProvider storageProvider, string? message)
     {
         var files = await storageProvider.OpenFilePickerAsync(new FilePickerOpenOptions()
         {
-            Title = "Select extension/s to install...",
+            Title = message,
             AllowMultiple = true,
             FileTypeFilter = new [] {new FilePickerFileType("dll")}
         });

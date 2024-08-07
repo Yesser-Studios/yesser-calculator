@@ -81,7 +81,8 @@ public partial class MainWindow : Window
     private async void InstallExtensionMenuItem_OnClick(object? sender, RoutedEventArgs e)
     {
         var topLevel = GetTopLevel(this);
-        var assemblies = await AssemblySelector.SelectAssemblies(topLevel!.StorageProvider);
+        var assemblies = await AssemblySelector.SelectAssemblies(topLevel!.StorageProvider,
+            "Select extension/s to install...");
         
         foreach (var assembly in assemblies)
         {
