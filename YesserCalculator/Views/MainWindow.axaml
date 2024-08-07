@@ -49,6 +49,7 @@
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Extensions">
                 <MenuItem Header="Open Extensions directory" Command="{Binding OpenExtensionsDirectory_OnClick}" />
+                <MenuItem Header="Install extension/s..." Click="InstallExtensionMenuItem_OnClick" />
             </MenuItem>
             <MenuItem Header="_Source">
                 <MenuItem Header="View source code on GitHub" Command="{Binding ViewSourceCode_OnClick}" />

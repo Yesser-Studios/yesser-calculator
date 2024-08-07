@@ -1,7 +1,11 @@
 using System;
+using System.Reflection;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using Avalonia.Platform.Storage;
+using YesserCalculator.Extension;
 using YesserCalculator.Models.Operations;
+using YesserCalculator.Utilities;
 using YesserCalculator.ViewModels;
 
 namespace YesserCalculator.Views;
@@ -72,5 +76,18 @@ public partial class MainWindow : Window
             return;
         
         (DataContext as MainWindowViewModel)?.OperationButton_OnClick((button.CommandParameter as string)!);
+    }
+
+    private async void InstallExtensionMenuItem_OnClick(object? sender, RoutedEventArgs e)
+    {
+        var topLevel = GetTopLevel(this);
+        var assemblies = await AssemblySelector.SelectAssemblies(topLevel!.StorageProvider);
+        
+        foreach (var assembly in assemblies)
+        {
+            Installer.TryInstallExtension(assembly, out var exception, true);
+            if (exception != null)
+                Console.WriteLine(exception);
+        }
     }
 }
