@@ -35,7 +35,6 @@ public static class Installer
             if (!unattended
                 && File.Exists(targetPath))
             {
-                
                 var update = AskFor("Do you want to update the already installed version of this extension?");
                 if (!update)
                 {
