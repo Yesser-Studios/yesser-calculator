@@ -171,40 +171,41 @@ public partial class MainWindowViewModel : ViewModelBase
         OnPropertyChanged(nameof(NumberBoxContent));
         OnPropertyChanged(nameof(OperationBoxContent));
     }
+
+    private void ProcessBackspace() {
+        if (_appendDecimalSeparator)
+            _appendDecimalSeparator = false;
+        else
+        {
+            var number = GetCurrentNumberRef().ToString(CultureInfo.InvariantCulture);
+            number = number[..^1]; // Remove last character
+
+            if (number.Length == 0)
+            {
+                GetCurrentNumberRef() = 0;
+                _appendDecimalSeparator = false;
+                _decimalSeparatorInside = false;
+
+                return;
+            }
+
+            if (number.Last() == '.')
+            {
+                number = number[..^1];
+                _appendDecimalSeparator = true;
+                _decimalSeparatorInside = false;
+            }
+
+            var didParse = double.TryParse(number, out var parsed);
+            if (!didParse) parsed = 0;
+
+            GetCurrentNumberRef() = parsed;
+        }
+    }
     
     public void BackspaceButton_OnClick()
     {
-        do
-            if (_appendDecimalSeparator)
-                _appendDecimalSeparator = false;
-            else
-            {
-                var number = GetCurrentNumberRef().ToString(CultureInfo.InvariantCulture);
-                number = number[..^1]; // Remove last character
-
-                if (number.Length == 0)
-                {
-                    GetCurrentNumberRef() = 0;
-                    _appendDecimalSeparator = false;
-                    _decimalSeparatorInside = false;
-
-                    break;
-                }
-
-                if (number.Last() == '.')
-                {
-                    number = number[..^1];
-                    _appendDecimalSeparator = true;
-                    _decimalSeparatorInside = false;
-                }
-
-                var didParse = double.TryParse(number, out var parsed);
-                if (!didParse) parsed = 0;
-
-                GetCurrentNumberRef() = parsed;
-            }
-        while (false);
-        
+        ProcessBackspace();
         OnPropertyChanged(nameof(NumberBoxContent));
     }
 
