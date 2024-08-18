@@ -1,8 +1,6 @@
 using System;
-using System.Reflection;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using Avalonia.Platform.Storage;
 using YesserCalculator.Extension;
 using YesserCalculator.Models.Operations;
 using YesserCalculator.Utilities;
@@ -78,6 +76,7 @@ public partial class MainWindow : Window
         (DataContext as MainWindowViewModel)?.OperationButton_OnClick((button.CommandParameter as string)!);
     }
 
+    // ReSharper disable line UnusedParameter.Local
     private async void InstallExtensionMenuItem_OnClick(object? sender, RoutedEventArgs e)
     {
         var topLevel = GetTopLevel(this);
