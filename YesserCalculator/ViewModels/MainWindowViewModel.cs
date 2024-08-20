@@ -66,8 +66,6 @@ public partial class MainWindowViewModel : ViewModelBase
     
     public void NumberButton_OnClick(int number)
     {
-        Console.WriteLine($"Adding number {number}");
-        
         if (_currentNumber is CurrentNumber.Result)
         {
             _result = 0;
@@ -84,8 +82,6 @@ public partial class MainWindowViewModel : ViewModelBase
         }
         
         AppendToCurrentNumber(toAppend);
-
-        Console.WriteLine($"Current number: {GetCurrentNumberRef()}");
     }
     
     private void AppendToCurrentNumber(string toAppend)
@@ -106,8 +102,6 @@ public partial class MainWindowViewModel : ViewModelBase
     
     public void OperationButton_OnClick(string symbol)
     {
-        Console.WriteLine($"Processing operation: {symbol}");
-        
         PreprocessNumber();
 
         _currentNumber = CurrentNumber.Number2;
