@@ -66,8 +66,6 @@ public partial class MainWindowViewModel : ViewModelBase
     
     public void NumberButton_OnClick(int number)
     {
-        Console.WriteLine($"Adding number {number}");
-        
         if (_currentNumber is CurrentNumber.Result)
         {
             _result = 0;
@@ -84,8 +82,6 @@ public partial class MainWindowViewModel : ViewModelBase
         }
         
         AppendToCurrentNumber(toAppend);
-
-        Console.WriteLine($"Current number: {GetCurrentNumberRef()}");
     }
     
     private void AppendToCurrentNumber(string toAppend)
@@ -106,8 +102,6 @@ public partial class MainWindowViewModel : ViewModelBase
     
     public void OperationButton_OnClick(string symbol)
     {
-        Console.WriteLine($"Processing operation: {symbol}");
-        
         PreprocessNumber();
 
         _currentNumber = CurrentNumber.Number2;
@@ -171,16 +165,24 @@ public partial class MainWindowViewModel : ViewModelBase
         OnPropertyChanged(nameof(NumberBoxContent));
         OnPropertyChanged(nameof(OperationBoxContent));
     }
-    
-    public void BackspaceButton_OnClick()
-    {
+
+    private void ProcessBackspace() {
         if (_appendDecimalSeparator)
             _appendDecimalSeparator = false;
         else
         {
             var number = GetCurrentNumberRef().ToString(CultureInfo.InvariantCulture);
             number = number[..^1]; // Remove last character
-            
+
+            if (number.Length == 0)
+            {
+                GetCurrentNumberRef() = 0;
+                _appendDecimalSeparator = false;
+                _decimalSeparatorInside = false;
+
+                return;
+            }
+
             if (number.Last() == '.')
             {
                 number = number[..^1];
@@ -193,7 +195,11 @@ public partial class MainWindowViewModel : ViewModelBase
 
             GetCurrentNumberRef() = parsed;
         }
-        
+    }
+    
+    public void BackspaceButton_OnClick()
+    {
+        ProcessBackspace();
         OnPropertyChanged(nameof(NumberBoxContent));
     }
 
